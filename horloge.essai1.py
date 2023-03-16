@@ -1,18 +1,36 @@
-import time
+import time 
 
-# en informatique, le point de départ du calcul du temps est le 1er janv 1970 à 00h00
-# print(time.time())
+def afficher_heure():
 
-while True: 
+    heure = (16,59,40)
+    heure_list = list(heure)
+    alarme = (17,59,00)
+    alarme_list = list(alarme)
 
-    heures = "%H"
-    minutes = "%M"
-    secondes = "%S"
-    print(time.strftime("%H:%M:%S"))
-    time.sleep(1)
-    
+    while True:
+        heure_list[2] += 1
+        if int(heure_list[2]) == 60:
+            heure_list[2] = 0
+            heure_list[1] += 1
+            if int(heure_list[1]) == 60:
+                heure_list[1] = 0
+                heure_list[0] += 1
+        print(f"{heure_list[0]}:{heure_list[1]}:{heure_list[2]}")
+        
+        time.sleep(1)
+
+        if int(alarme_list)[2] ==60:
+            alarme_list[2] = 0
+            
 
 
 
+afficher_heure()       
 
-    
+
+
+                
+
+   
+
+
